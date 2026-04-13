@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piano Master Academy - Luxury UI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-gold: #FFD700; 
+      --soft-beige: #FDF5E6;   
+      --deep-brown: #4A3728;   
+      --text-main: #2C1E12;    
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body { 
+      font-family: 'Montserrat', sans-serif; 
+      background-color: #fff; 
+      color: var(--text-main); 
+    }
+
+    /* HEADER */
+    header {
+      background: #fff;
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--soft-beige);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-left { display: flex; align-items: center; gap: 20px; }
+    
+    /* LOGO NHÂN VẬT */
+    .brand-logo {
+      width: 45px;
+      height: 45px;
+      background-color: var(--primary-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .brand-logo::before { content: ""; width: 14px; height: 14px; background: var(--deep-brown); border-radius: 50%; position: absolute; top: 10px; }
+    .brand-logo::after { content: ""; width: 26px; height: 16px; background: var(--deep-brown); border-radius: 20px 20px 0 0; position: absolute; bottom: 5px; }
+
+    .logo-text { 
+      background: var(--primary-gold); 
+      padding: 8px 20px; 
+      font-weight: 700; 
+      font-size: 14px; 
+      color: var(--deep-brown);
+      border-radius: 4px;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      background: var(--soft-beige);
+      border-radius: 20px;
+      padding: 8px 15px;
+      width: 220px;
+    }
+    .search-container input { border: none; background: transparent; outline: none; width: 100%; font-size: 12px; font-family: 'Montserrat'; }
+
+    .lang-btn {
+      border: 1.5px solid var(--deep-brown);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--deep-brown);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .header-right { display: flex; align-items: center; gap: 25px; }
+    .nav-menu { display: flex; list-style: none; gap: 20px; }
+    .nav-menu a { 
+      text-decoration: none; 
+      color: var(--deep-brown); 
+      font-size: 12px; 
+      font-weight: 700; 
+      text-transform: uppercase;
+    }
+
+    .btn-signup {
+      background: var(--deep-brown);
+      color: var(--primary-gold) !important;
+      padding: 10px 22px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      display: flex;
+      padding: 100px 80px;
+      max-width: 1400px;
+      margin: 0 auto;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .hero-text { flex: 1; }
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 72px;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 25px;
+      color: var(--deep-brown);
+    }
+    .hero-text p {
+      font-size: 18px;
+      color: #5d4a3a;
+      margin-bottom: 45px;
+      max-width: 500px;
+      line-height: 1.8;
+    }
+
+    .btn-cta {
+      display: inline-block;
+      background: var(--primary-gold);
+      color: var(--deep-brown);
+      padding: 22px 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      border-radius: 50px; 
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    }
+
+    .trust-label { margin-top: 25px; font-size: 14px; color: var(--deep-brown); font-weight: 600; }
+
+    /* IMAGE BOX VỚI SHADOW BEIGE CHUẨN */
+    .hero-image {
+      flex: 1;
+      aspect-ratio: 1.2 / 1;
+      border: 3px solid var(--deep-brown);
+      border-radius: 12px;
+      background-image: url('https://images.unsplash.com/photo-1552422535-c45813c61732?q=80&w=1000');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 15px 15px 0px var(--soft-beige);
+    }
+
+    @media (max-width: 1100px) {
+      .hero { flex-direction: column; text-align: center; padding: 60px 20px; }
+      .hero-text h1 { font-size: 48px; }
+      .search-container, .lang-btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-left">
+      <div class="brand-logo"></div>
+      <a href="#" class="logo-text">PIANO MASTER</a>
+      <div class="search-container">
+        <input type="text" placeholder="Tìm khóa học...">
+        <span>🔍</span>
+      </div>
+      <div class="lang-btn">🌐 VN | EN</div>
+    </div>
+
+    <nav class="header-right">
+      <ul class="nav-menu">
+        <li><a href="#">KHOÁ HỌC</a></li>
+        <li><a href="#">LỘ TRÌNH</a></li>
+        <li><a href="#">GIẢNG VIÊN</a></li>
+      </ul>
+      
+      <div style="font-size: 20px; cursor: pointer; position: relative; display: flex; align-items: center;">
+        🛒
+        <span style="
+          position: absolute; 
+          top: -8px; 
+          right: -10px; 
+          background: var(--deep-brown); 
+          color: var(--primary-gold); 
+          border-radius: 50%; 
+          padding: 2px 5px; 
+          font-size: 10px; 
+          font-weight: 700;
+          line-height: 1;
+        ">3</span>
+      </div>
+
+      <a href="#" class="btn-signup">ĐĂNG KÝ</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Âm Nhạc<br>Từ Tâm Hồn</h1>
+      <p>Hệ thống đào tạo Piano trực tuyến chuyên nghiệp. Lộ trình cá nhân hóa giúp bạn khơi nguồn đam mê âm nhạc ngay tại nhà.</p>
+      <a href="#" class="btn-cta">HỌC THỬ MIỄN PHÍ</a>
+      <div class="trust-label">
+        Cam kết chất lượng từ các <i>giảng viên Nhạc Viện TP HCM</i> <br />
+        từ các khoa <i>chuyên ngành Piano</i>
+      </div>
+    </div>
+    
+    <div class="hero-image"></div>
+  </section>
+<section class="stats-luxury" style="background-color: var(--soft-beige); padding: 100px 5%;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-around; align-items: center; text-align: center; gap: 30px; flex-wrap: wrap;">
+      
+      <div class="stat-box">
+        <div class="stat-number">2.000+</div>
+        <div class="stat-label">HỌC VIÊN</div>
+        <div class="stat-accent"></div>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-number">98%</div>
+        <div class="stat-label">HÀI LÒNG</div>
+        <div class="stat-accent"></div>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-number">5.000+</div>
+        <div class="stat-label">GIỜ HỌC</div>
+        <div class="stat-accent"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+    .stat-box {
+      background: #fff;
+      padding: 40px 60px;
+      border-radius: 20px;
+      min-width: 280px;
+      /* Viền mặc định mờ để khi hiện lên không bị giật hình */
+      border: 2px solid transparent; 
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+    
+    /* HIỆU ỨNG HIGHLIGHT GIỐNG TRONG HÌNH */
+    .stat-box:hover {
+      transform: translateY(-5px);
+      background: #fff;
+      /* Hiện viền vàng đậm nét */
+      border: 2px solid var(--primary-gold); 
+      /* Đổ bóng lan tỏa nhẹ */
+      box-shadow: 0 15px 35px rgba(255, 215, 0, 0.15); 
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 64px;
+      font-weight: 900;
+      color: var(--deep-brown);
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      color: #8B7355;
+      letter-spacing: 3px;
+    }
+
+    .stat-accent {
+      width: 60px;
+      height: 4px;
+      background: var(--primary-gold);
+      margin: 20px auto 0;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .stat-box { min-width: 100%; }
+    }
+  </style>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piano Master Academy - Luxury UI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-gold: #FFD700; 
+      --soft-beige: #FDF5E6; 
+      --deep-brown: #4A3728; 
+      --text-main: #2C1E12;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body { 
+      font-family: 'Montserrat', sans-serif; 
+      background-color: #fff; 
+      color: var(--text-main); 
+      line-height: 1.5;
+    }
+
+    /* TIÊU ĐỀ SECTION MẠNH MẼ */
+    .section-title { 
+      font-size: 28px; 
+      font-weight: 900; 
+      color: var(--deep-brown); 
+      border-left: 10px solid var(--primary-gold); 
+      padding-left: 20px; 
+      margin-bottom: 50px;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+    }
+
+    /* CARD DESIGN */
+    .course-card-lux { 
+      background: #fff; 
+      border-radius: 15px; 
+      overflow: hidden; 
+      border: 1px solid rgba(74, 55, 40, 0.1); 
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .course-card-lux:hover { 
+      transform: translateY(-12px); 
+      box-shadow: 0 25px 50px rgba(74, 55, 40, 0.1); 
+    }
+
+    .img-placeholder { 
+      width: 100%; 
+      height: 220px; 
+      background-size: cover; 
+      background-position: center; 
+    }
+
+    .card-info { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+    
+    .card-info h3 { 
+      font-weight: 800; 
+      font-size: 18px; 
+      margin-bottom: 10px; 
+      color: var(--deep-brown);
+      letter-spacing: -0.5px;
+    }
+
+    .course-meta { 
+      font-size: 11px; 
+      font-weight: 700; 
+      color: #8b7355; 
+      margin-bottom: 12px; 
+      display: flex; 
+      gap: 15px; 
+    }
+
+    .card-info p { 
+      font-size: 13px; 
+      color: #666; 
+      margin-bottom: 20px; 
+      font-weight: 500;
+    }
+
+    .card-footer { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      margin-top: auto; 
+      border-top: 1px solid #eee; 
+      padding-top: 20px; 
+    }
+
+    .price-tag { 
+      font-weight: 800; 
+      color: var(--deep-brown); 
+      font-size: 16px; 
+    }
+
+    /* KHOÁ VIP ĐẮT TIỀN - BLACK VIBE */
+    .ultra-vip { 
+      background: #1a1a1a !important; 
+      border: 2px solid var(--primary-gold) !important; 
+      color: #fff; 
+    }
+    .ultra-vip h3 { color: var(--primary-gold) !important; }
+    .ultra-vip p { color: #bbb !important; }
+    
+    .vip-badge { 
+      position: absolute; 
+      top: 15px; 
+      right: 15px; 
+      background: var(--primary-gold); 
+      color: var(--deep-brown); 
+      padding: 5px 15px; 
+      border-radius: 4px; 
+      font-size: 10px; 
+      font-weight: 900; 
+    }
+
+    /* CARD JAZZ NGANG - */
+    .course-card-lux-horizontal { 
+      display: flex; 
+      height: 260px; 
+      background: #fff; 
+      border-radius: 15px; 
+      overflow: hidden; 
+      border: 1px solid rgba(74, 55, 40, 0.1); 
+      transition: all 0.4s ease; 
+    }
+    .course-card-lux-horizontal:hover { transform: scale(1.02); }
+
+    .img-side { flex: 0.9; background-size: cover; background-position: center; }
+    .info-side { flex: 1.1; padding: 30px; display: flex; flex-direction: column; justify-content: space-between; }
+
+    /* BUTTONS */
+    .btn-dark-sm { 
+      background: var(--deep-brown); 
+      color: var(--primary-gold); 
+      border: none; 
+      padding: 10px 20px; 
+      font-size: 11px; 
+      font-weight: 800; 
+      border-radius: 5px; 
+      cursor: pointer; 
+      transition: 0.3s;
+    }
+    .btn-gold-sm { 
+      background: var(--primary-gold); 
+      color: var(--deep-brown); 
+      border: none; 
+      padding: 10px 20px; 
+      font-size: 11px; 
+      font-weight: 800; 
+      border-radius: 5px; 
+      cursor: pointer; 
+      box-shadow: 0 4px 10px rgba(255, 215, 0, 0.2);
+    }
+    .btn-dark-sm:active, .btn-gold-sm:active { transform: scale(0.95); }
+
+    /* XEM THÊM - DỊU KEO */
+    .view-more-btn { 
+      font-weight: 500; 
+      font-size: 15px; 
+      color: #8b7355; 
+      text-decoration: none; 
+      font-style: italic;
+      transition: 0.3s; 
+    }
+  </style>
+</head>
+<body>
+<br />
+  <div style="text-align: center; margin-bottom: 50px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+  <button class="filter-btn active" onclick="filterCourses('all', this)">TẤT CẢ</button>
+  <button class="filter-btn" onclick="filterCourses('dem-hat', this)">ĐỆM HÁT & COVER</button>
+  <button class="filter-btn" onclick="filterCourses('classical', this)">PIANO CỔ ĐIỂN</button>
+  <button class="filter-btn" onclick="filterCourses('jazz', this)">LÝ THUYẾT & JAZZ</button>
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px 20px 80px;">
+  
+  <div id="dem-hat" class="course-section" style="margin-bottom: 100px;">
+    <h2 class="section-title">01. KHOÁ HỌC ĐỆM HÁT & COVER</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px;">
+      <div class="course-card-lux">
+        <div class="img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1552422535-c45813c61732?q=80&w=800');"></div>
+        <div class="card-info">
+          <h3>ĐỆM HÁT COVER CĂN BẢN</h3>
+          <div class="course-meta"><span>⏱ 12 GIỜ HỌC</span> <span>📚 24 BÀI</span></div>
+          <p>Làm quen hợp âm, nhịp phách và các mẫu đệm Ballad cơ bản.</p>
+          <div class="card-footer"><span class="price-tag">1.200.000 VNĐ</span><button class="btn-dark-sm">ĐĂNG KÝ</button></div>
+        </div>
+      </div>
+      <div class="course-card-lux">
+        <div class="img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1514119412350-e174d90d280e?q=80&w=800');"></div>
+        <div class="card-info">
+          <h3>ĐỆM HÁT NÂNG CAO</h3>
+          <div class="course-meta"><span>⏱ 18 GIỜ HỌC</span> <span>📚 36 BÀI</span></div>
+          <p>Xử lý Intro, Outro và các kỹ thuật fill-in chuyên nghiệp.</p>
+          <div class="card-footer"><span class="price-tag">1.800.000 VNĐ</span><button class="btn-dark-sm">ĐĂNG KÝ</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="classical" class="course-section" style="margin-bottom: 100px;">
+    <h2 class="section-title">02. PIANO CỔ ĐIỂN (CLASSICAL)</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+      <div class="course-card-lux">
+        <div class="img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1513883049090-d0b7439799bf?q=80&w=800');"></div>
+        <div class="card-info">
+          <h3>CĂN BẢN 1 (Methode Rose)</h3>
+          <div class="course-meta"><span>⏱ 20 GIỜ</span> <span>📚 40 BÀI</span></div>
+          <p>Kỹ thuật ngón chuẩn Nhạc viện, đọc bản nhạc khóa Sol, khóa Fa.</p>
+          <div class="card-footer"><span class="price-tag">1.500.000 VNĐ</span><button class="btn-dark-sm">ĐĂNG KÝ</button></div>
+        </div>
+      </div>
+      <div class="course-card-lux">
+        <div class="img-placeholder" style="background-image: url('https://images.unsplash.com/photo-1594122230689-45899d9e6f69?q=80&w=800');"></div>
+        <div class="card-info">
+          <h3>TRUNG CẤP 2 (CZERNY)</h3>
+          <div class="course-meta"><span>⏱ 30 GIỜ</span> <span>📚 60 BÀI</span></div>
+          <p>Luyện ngón chuyên sâu Czerny 599 và tiểu phẩm Sonatina.</p>
+          <div class="card-footer"><span class="price-tag">2.200.000 VNĐ</span><button class="btn-dark-sm">ĐĂNG KÝ</button></div>
+        </div>
+      </div>
+      <div class="course-card-lux ultra-vip" style="position: relative;">
+        <div class="img-placeholder" style="background-image: url('https://trungnguyenpiano.com/wp-content/uploads/2025/03/sonata-anh-trang-piano-1.jpg');">
+          <span class="vip-badge">MASTERCLASS</span>
+        </div>
+        <div class="card-info">
+          <h3>NÂNG CAO 3 (SONATA)</h3>
+          <div class="course-meta" style="color: #ccc;"><span>⏱ 50 GIỜ HỌC</span> <span>📚 CHUYÊN GIA</span></div>
+          <p>Luyện thi Nhạc viện chuyên nghiệp với các tác phẩm Chopin, Beethoven.</p>
+          <div class="card-footer" style="border-top-color: rgba(255,215,0,0.2);">
+            <span style="color: #fff; font-weight: 800;">4.500.000 VNĐ</span>
+            <button class="btn-gold-sm">ĐĂNG KÝ VIP</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="jazz" class="course-section" style="margin-bottom: 80px;">
+    <h2 class="section-title">03. LÝ THUYẾT & JAZZ</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px;">
+      <div class="course-card-lux-horizontal">
+        <div class="img-side" style="background-image: url('https://images.unsplash.com/photo-1511192336575-5a79af67a629?q=80&w=800');"></div>
+        <div class="info-side">
+          <h3>HÒA ÂM & LY ĐIỆU</h3>
+          <div class="course-meta"><span>⏱ 15 GIỜ</span> <span>📚 CHUYÊN SÂU</span></div>
+          <p>Phối bài với hợp âm Jazz màu sắc, nâng tầm bản phối chuyên nghiệp.</p>
+          <div class="card-footer"><span class="price-tag">3.000.000 VNĐ</span><button class="btn-dark-sm">ĐĂNG KÝ</button></div>
+        </div>
+      </div>
+      <div class="course-card-lux-horizontal">
+        <div class="img-side" style="background-image: url('https://cdn-images.dzcdn.net/images/cover/d12e1f761428036fe7ae70df4c8b4e12/500x500.jpg');"></div>
+        <div class="info-side">
+          <h3>JAZZ CĂN BẢN</h3>
+          <div class="course-meta"><span>⏱ 25 GIỜ</span> <span>📚 IMPROVISATION</span></div>
+          <p>Tư duy Swing, Blue note và kỹ thuật ngẫu hứng trên phím đàn.</p>
+          <div class="card-footer"><span class="price-tag">3.500.000 VNĐ</span><button class="btn-dark-sm">ĐĂNG KÝ</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="view-more-box" style="text-align: center; padding: 40px 0;">
+    <a href="#" style="color: #8b7355; font-weight: 500; font-size: 15px; text-decoration: none; font-family: 'Montserrat';">
+      <i>Xem thêm các khóa học khác...</i>
+      <span style="display: block; width: 60px; height: 1px; background: var(--primary-gold); margin: 10px auto;"></span>
+    </a>
+  </div>
+</div>
+
+<style>
+  /* CSS CHO NÚT FILTER */
+  .filter-btn {
+    background: transparent;
+    border: 2px solid var(--deep-brown);
+    color: var(--deep-brown);
+    padding: 10px 25px;
+    font-family: 'Montserrat';
+    font-weight: 800;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+  }
+
+  .filter-btn:hover {
+    background: var(--soft-beige);
+  }
+
+  .filter-btn.active {
+    background: var(--deep-brown);
+    color: var(--primary-gold);
+  }
+
+  /* Hiệu ứng mượt khi ẩn hiện */
+  .course-section {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+</style>
+
+<script>
+  function filterCourses(category, btn) {
+    // 1. Cập nhật trạng thái nút bấm
+    const buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // 2. Lọc nội dung
+    const sections = document.querySelectorAll('.course-section');
+    const viewMore = document.getElementById('view-more-box');
+
+    sections.forEach(sec => {
+      if (category === 'all') {
+        sec.style.display = 'block';
+        sec.style.opacity = '1';
+        viewMore.style.display = 'block';
+      } else {
+        if (sec.id === category) {
+          sec.style.display = 'block';
+          sec.style.opacity = '1';
+          viewMore.style.display = 'none'; // Ẩn "xem thêm" khi lọc lẻ
+        } else {
+          sec.style.display = 'none';
+        }
+      }
+    });
+  }
+</script>
+  <section style="padding: 100px 20px; background-color: #fff;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <h2 style="text-align: center; font-family: 'Montserrat'; font-weight: 900; font-size: 36px; color: var(--deep-brown); margin-bottom: 60px; text-transform: uppercase; letter-spacing: 1px;">
+        So Sánh Các Gói Thành Viên
+      </h2>
+      
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: separate; border-spacing: 0; background: #fff; border-radius: 20px; overflow: hidden; border: 1px solid rgba(74, 55, 40, 0.05);">
+          <thead>
+            <tr style="background: var(--deep-brown); color: #fff; text-align: left;">
+              <th style="padding: 30px; font-size: 14px; font-weight: 800; text-transform: uppercase; border-top-left-radius: 20px;">Quyền Lợi</th>
+              <th style="padding: 30px; font-size: 14px; font-weight: 800; text-transform: uppercase; text-align: center;">Học Lẻ (Basic)</th>
+              <th style="padding: 30px; font-size: 14px; font-weight: 800; text-transform: uppercase; text-align: center; color: var(--primary-gold); border-top-right-radius: 20px;">Hội Viên (Premium)</th>
+            </tr>
+          </thead>
+          <tbody style="font-size: 14px; color: var(--text-main); font-weight: 600;">
+            <tr class="table-row-hover">
+              <td style="padding: 25px 30px;">Truy cập video 4K vĩnh viễn</td>
+              <td style="padding: 25px 30px; text-align: center; color: #27ae60; font-size: 18px;">✔</td>
+              <td style="padding: 25px 30px; text-align: center; color: #27ae60; font-size: 18px;">✔</td>
+            </tr>
+            <tr class="table-row-hover">
+              <td style="padding: 25px 30px;">Hỗ trợ 1-1 trực tiếp từ Giảng viên</td>
+              <td style="padding: 25px 30px; text-align: center; color: #e74c3c; font-size: 18px;">✘</td>
+              <td style="padding: 25px 30px; text-align: center; color: #27ae60; font-size: 18px;">✔</td>
+            </tr>
+            <tr class="table-row-hover">
+              <td style="padding: 25px 30px;">Giáo trình PDF độc quyền</td>
+              <td style="padding: 25px 30px; text-align: center; color: #e74c3c; font-size: 18px;">✘</td>
+              <td style="padding: 25px 30px; text-align: center; color: #27ae60; font-size: 18px;">✔</td>
+            </tr>
+            <tr class="table-row-hover">
+              <td style="padding: 25px 30px; border-bottom-left-radius: 20px;">Tham gia Offline Workshop hàng tháng</td>
+              <td style="padding: 25px 30px; text-align: center; color: #e74c3c; font-size: 18px;">✘</td>
+              <td style="padding: 25px 30px; text-align: center; color: #27ae60; font-size: 18px; border-bottom-right-radius: 20px;">✔</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* HIỆU ỨNG DÒNG KHI RÊ CHUỘT */
+    .table-row-hover {
+      transition: background-color 0.2s ease;
+      border-bottom: 1px solid rgba(74, 55, 40, 0.05);
+    }
+    .table-row-hover:hover {
+      background-color: var(--soft-beige);
+    }
+    /* Xóa viền dòng cuối cùng */
+    .table-row-hover:last-child {
+      border-bottom: none;
+    }
+  </style>
+  <section style="padding: 100px 20px; background-color: var(--soft-beige);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 style="font-family: 'Montserrat'; font-weight: 900; font-size: 32px; color: var(--deep-brown); margin-bottom: 50px; text-transform: uppercase; border-left: 10px solid var(--primary-gold); padding-left: 20px;">
+        Kiến Thức & Tài Nguyên
+      </h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+        
+        <div class="blog-container">
+          <div class="resource-card-pro">
+            <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1514119412350-e174d90d280e?q=80&w=600');"></div>
+            <div class="blog-content">
+              <h3>5 Bước Tự Học Piano Đệm Hát</h3>
+              <p>Chia sẻ từ cô Minh Nguyệt giúp bạn tiến bộ nhanh hơn trong việc làm chủ phím đàn tại nhà.</p>
+              <button class="read-more-btn" onclick="toggleDetails('details-1', this)">ĐỌC THÊM</button>
+            </div>
+          </div>
+          <div id="details-1" class="blog-details">
+            <p><strong>Nội dung chi tiết:</strong> Lộ trình bao gồm: 1. Làm quen phím đàn, 2. Học hợp âm cơ bản, 3. Luyện tiết tấu Ballad, 4. Kết hợp hai tay, 5. Áp dụng vào bài hát yêu thích.</p>
+          </div>
+        </div>
+
+        <div class="blog-container">
+          <div class="resource-card-pro">
+            <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1594122230689-45899d9e6f69?q=80&w=600');"></div>
+            <div class="blog-content">
+              <h3>Bí Quyết Luyện Ngón Cho Người Mới</h3>
+              <p>Những bài tập đơn giản nhưng cực kỳ hiệu quả để ngón tay linh hoạt hơn mỗi ngày.</p>
+              <button class="read-more-btn" onclick="toggleDetails('details-2', this)">ĐỌC THÊM</button>
+            </div>
+          </div>
+          <div id="details-2" class="blog-details">
+            <p><strong>Nội dung chi tiết:</strong> Tập trung vào các bài luyện ngón của Hanon và Czerny để tăng sức mạnh cơ tay và độ độc lập của các ngón tay.</p>
+          </div>
+        </div>
+
+        <div class="blog-container">
+          <div class="resource-card-pro">
+            <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1552422535-c45813c61732?q=80&w=600');"></div>
+            <div class="blog-content">
+              <h3>Lựa Chọn Đàn Piano Điện Hay Cơ?</h3>
+              <p>Phân tích chi tiết ưu nhược điểm của từng loại để bạn có lựa chọn đầu tư đúng đắn nhất.</p>
+              <button class="read-more-btn" onclick="toggleDetails('details-3', this)">ĐỌC THÊM</button>
+            </div>
+          </div>
+          <div id="details-3" class="blog-details">
+            <p><strong>Nội dung chi tiết:</strong> Đàn cơ mang lại cảm giác phím và âm thanh chân thực, trong khi đàn điện tiện lợi để tập luyện ban đêm và có giá thành dễ tiếp cận hơn.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* STYLE CARD CHUẨN OUTPUT */
+    .resource-card-pro {
+      background: #fff;
+      border-radius: 25px; /* Bo góc cực mạnh như trong ảnh */
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      transition: all 0.3s ease;
+    }
+    
+    .blog-img { height: 220px; background-size: cover; background-position: center; }
+    
+    .blog-content { padding: 30px; }
+    
+    .blog-content h3 { 
+      font-size: 20px; font-weight: 800; color: var(--deep-brown); margin-bottom: 15px; 
+      font-family: 'Montserrat';
+    }
+    
+    .blog-content p { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 25px; }
+    
+    .read-more-btn {
+      background: none; border: none; padding: 0;
+      color: var(--deep-brown); font-weight: 800; font-size: 13px;
+      cursor: pointer; border-bottom: 3px solid var(--primary-gold);
+      text-transform: uppercase; padding-bottom: 2px;
+    }
+
+    /* THANH GIẢI THÍCH HIỆN XUỐNG DƯỚI */
+    .blog-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out, padding 0.4s ease;
+      background: #fff;
+      margin-top: 10px;
+      border-radius: 15px;
+      padding: 0 25px;
+      font-size: 13px;
+      color: #555;
+      line-height: 1.6;
+    }
+    
+    .blog-details.show {
+      max-height: 200px; /* Độ cao tối đa khi mở */
+      padding: 20px 25px;
+      border: 1px solid var(--primary-gold);
+    }
+  </style>
+
+  <script>
+    function toggleDetails(id, btn) {
+      const details = document.getElementById(id);
+      const allDetails = document.querySelectorAll('.blog-details');
+      
+      // Đóng các thanh khác nếu đang mở (tùy chọn)
+      allDetails.forEach(el => {
+        if (el.id !== id) el.classList.remove('show');
+      });
+
+      // Bật/tắt thanh hiện tại
+      details.classList.toggle('show');
+      
+      // Đổi chữ nút (tùy chọn)
+      if (details.classList.contains('show')) {
+        btn.innerText = "THU GỌN";
+      } else {
+        btn.innerText = "ĐỌC THÊM";
+      }
+    }
+  </script>
+  
+  <section id="giang-vien" style="padding: 100px 20px; background-color: #fff; overflow: hidden;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 style="text-align: center; font-family: 'Montserrat'; font-weight: 900; font-size: 32px; color: var(--deep-brown); margin-bottom: 60px; text-transform: uppercase; letter-spacing: 2px;">
+        Đội Ngũ Giảng Viên
+      </h2>
+
+      <div class="teacher-scroll-container">
+        
+        <div class="teacher-card">
+          <div class="teacher-img" style="background-image: url('https://cafefcdn.com/203337114487263232/2025/11/21/548637512102316925396400907969962354627038169n-176362849698979326685-1763687635787-1763687636537531482327.jpg');"></div>
+          <div class="teacher-info">
+            <h3>Cô Minh Nguyệt</h3>
+            <p class="teacher-rank">MASTER OF PIANO - NHẠC VIỆN</p>
+            <ul class="teacher-bio">
+              <li>Giảng viên chuyên ngành piano</li>
+              <li>Phó khoa piano Nhạc Viện TP.HCM</li>
+              <li>15 năm kinh nghiệm</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="teacher-card">
+          <div class="teacher-img" style="background-image: url('https://www.mayspace.edu.vn/wp-content/uploads/2023/05/thac-si-nghe-si-giang-vien-piano-pham-quynh-trang-600x434.jpg');"></div>
+          <div class="teacher-info">
+            <h3>Cô Khánh Huyền</h3>
+            <p class="teacher-rank">MASTER OF PIANO - NHẠC VIỆN</p>
+            <ul class="teacher-bio">
+              <li>Giảng viên chuyên ngành jazz</li>
+              <li>Trưởng khoa jazz Nhạc Viện TP.HCM</li>
+              <li>16 năm kinh nghiệm</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="teacher-card">
+          <div class="teacher-img" style="background-image: url('https://cdn2.tuoitre.vn/zoom/700_525/2019/10/2/chi-thuy-uyen-1-1569985093276580506849-crop-15699852877311989699531.jpg');"></div>
+          <div class="teacher-info">
+            <h3>Cô Giang Quân</h3>
+            <p class="teacher-rank">MASTER OF PIANO - NHẠC VIỆN</p>
+            <ul class="teacher-bio">
+              <li>Giảng viên piano & thanh nhạc</li>
+              <li>Trưởng khoa thanh nhạc Nhạc Viện TP.HCM</li>
+              <li>10 năm kinh nghiệm</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="teacher-card">
+          <div class="teacher-img" style="background-image: url('https://cly.1cdn.vn/2021/07/22/lan.jpg');"></div>
+          <div class="teacher-info">
+            <h3>Cô Mỹ Linh</h3>
+            <p class="teacher-rank">MASTER OF PIANO - NHẠC VIỆN</p>
+            <ul class="teacher-bio">
+              <li>Giảng viên chuyên ngành piano</li>
+              <li>Trưởng khoa piano Nhạc Viện TP.HCM</li>
+              <li>20 năm kinh nghiệm</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      
+      <div style="margin-top: 40px; text-align: center;">
+        <div style="width: 100%; height: 2px; background: #ddd; margin-bottom: 15px;"></div>
+        <p style="font-size: 12px; color: #bbb; font-style: italic;">(Vuốt sang phải để xem thêm giảng viên...)</p>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* CSS CHO THANH CUỘN NGANG */
+    .teacher-scroll-container {
+      display: flex;
+      gap: 30px;
+      overflow-x: auto;
+      padding: 20px 5px 40px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none; /* Ẩn thanh cuộn mặc định */
+    }
+    .teacher-scroll-container::-webkit-scrollbar { display: none; }
+
+    .teacher-card {
+      min-width: 300px;
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    }
+
+    .teacher-img {
+      width: 100%;
+      height: 350px;
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%); /* Hiệu ứng trắng đen chuẩn ảnh */
+      transition: all 0.5s ease;
+    }
+
+    /* Hiệu ứng khi di chuột vào card */
+    .teacher-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(74, 55, 40, 0.1);
+    }
+    
+    .teacher-card:hover .teacher-img {
+      filter: grayscale(0%); /* Hiện màu khi hover */
+      transform: scale(1.05);
+    }
+
+    .teacher-info { padding: 25px; text-align: left; }
+
+    .teacher-info h3 {
+      font-family: 'Montserrat';
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--deep-brown);
+      margin-bottom: 8px;
+    }
+
+    .teacher-rank {
+      font-size: 11px;
+      color: var(--primary-gold);
+      font-weight: 700;
+      margin-bottom: 15px;
+      letter-spacing: 0.5px;
+    }
+
+    .teacher-bio {
+      list-style: none;
+      font-size: 12px;
+      color: #666;
+      line-height: 1.8;
+    }
+    
+    .teacher-bio li { position: relative; padding-left: 15px; }
+    .teacher-bio li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--primary-gold);
+      font-weight: bold;
+    }
+  </style>
+  <section style="padding: 100px 20px; background-color: #fff; overflow: hidden;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 60px;">
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: var(--deep-brown); text-transform: uppercase;">
+          Âm Thanh Của Sự Thành Công
+        </h2>
+        <p style="color: #888; font-size: 14px; margin-top: 10px;">Hơn 2.000+ học viên đã thay đổi tư duy âm nhạc cùng chúng tôi</p>
+      </div>
+
+      <div class="testimonial-scroll-container">
+        
+        <div class="review-card">
+          <div class="user-meta">
+            <div class="user-avatar">AT</div>
+            <div>
+              <h4>An Tuấn</h4>
+              <span>Học viên Cổ điển Trung cấp</span>
+            </div>
+          </div>
+          <p class="review-text">"Lộ trình cổ điển của Piano Master cực kỳ thực tế, giúp tôi thi đỗ Nhạc viện chỉ sau 6 tháng."</p>
+          <div class="stars">★★★★★</div>
+        </div>
+
+        <div class="review-card">
+          <div class="user-meta">
+            <div class="user-avatar" style="background: var(--primary-gold);">H4</div>
+            <div>
+              <h4>Học viên 4</h4>
+              <span>Khóa Jazz nâng cao</span>
+            </div>
+          </div>
+          <p class="review-text">"Khóa Jazz thực sự mở mang tư duy hòa âm của mình. Thầy dạy cực 'cháy'!"</p>
+          <div class="stars">★★★★★</div>
+        </div>
+
+        <div class="review-card">
+          <div class="user-meta">
+            <div class="user-avatar">CL</div>
+            <div>
+              <h4>Chị Lan</h4>
+              <span>Học viên Đệm hát</span>
+            </div>
+          </div>
+          <p class="review-text">"Team dạy rất nhanh, chuyên nghiệp. Tôi sẽ dùng dịch vụ thường xuyên."</p>
+          <div class="stars">★★★★★</div>
+        </div>
+
+        <div class="review-card">
+          <div class="user-meta">
+            <div class="user-avatar">CH</div>
+            <div>
+              <h4>Chị Hường</h4>
+              <span>Học viên UEH</span>
+            </div>
+          </div>
+          <p class="review-text">"Giá hợp lý, nhân viên rất tích cực. Recommend cho các bạn UEH nha!"</p>
+          <div class="stars">★★★★★</div>
+        </div>
+
+        <div class="review-card">
+          <div class="user-meta">
+            <div class="user-avatar">H6</div>
+            <div>
+              <h4>Học viên 6</h4>
+              <span>Khóa học Online</span>
+            </div>
+          </div>
+          <p class="review-text">"Hệ thống video bài giảng rất rõ nét, dễ theo dõi trên cả điện thoại."</p>
+          <div class="stars">★★★★★</div>
+        </div>
+
+      </div>
+
+      <div style="margin-top: 80px; padding: 50px; border: 2px solid var(--deep-brown); border-radius: 20px; text-align: center; background: #fff;">
+        <p style="font-family: 'Playfair Display', serif; font-size: 20px; font-style: italic; color: var(--deep-brown); line-height: 1.8;">
+          "Âm nhạc là ngôn ngữ của tâm hồn, và Piano Master là người thầy dẫn dắt tuyệt vời nhất."
+        </p>
+        <h5 style="margin-top: 20px; font-weight: 800; font-size: 14px; color: var(--text-main);">
+          - Học viên thứ 10, UEH K49
+        </h5>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* CSS CHO TESTIMONIAL SCROLL */
+    .testimonial-scroll-container {
+      display: flex;
+      gap: 25px;
+      overflow-x: auto;
+      padding: 20px 5px 40px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+    .testimonial-scroll-container::-webkit-scrollbar { display: none; }
+
+    .review-card {
+      min-width: 320px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid #eee;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+      scroll-snap-align: start;
+      transition: all 0.4s ease; /* Thời gian chuyển đổi mượt mà */
+      cursor: pointer;
+    }
+
+    /* HIỆU ỨNG HOVER SÁNG MÀU CHUẨN */
+    .review-card:hover {
+      background: var(--soft-beige) !important; /* Chuyển nền sang vàng be nhạt */
+      border: 2px solid var(--primary-gold); /* Thêm viền vàng đậm nét */
+      transform: translateY(-10px) scale(1.02); /* Phóng to và nhích lên nhẹ */
+      box-shadow: 0 15px 30px rgba(74, 55, 40, 0.1); /* Đổ bóng lan tỏa sang trọng */
+    }
+
+    .user-meta { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+    .user-avatar {
+      width: 50px; height: 50px;
+      background: #f0ede9;
+      color: var(--deep-brown);
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%; font-weight: 900; font-size: 14px;
+    }
+
+    .user-meta h4 { font-size: 16px; font-weight: 800; color: var(--deep-brown); }
+    .user-meta span { font-size: 11px; color: #999; }
+
+    .review-text { font-size: 14px; color: #555; line-height: 1.6; margin-bottom: 20px; min-height: 65px; font-style: italic; }
+    
+    /* ĐÁNH GIÁ SAO MÀU VÀNG CHUẨN */
+    .stars { 
+      color: #f1c40f; /* Màu vàng kim rực rỡ */
+      font-size: 12px; 
+      letter-spacing: 2px; 
+    }
+  </style>
+  <section style="padding: 100px 20px; background-color: var(--deep-brown); color: #fff; overflow: hidden;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-around; gap: 60px; flex-wrap: wrap;">
+      
+      <div style="
+        width: 280px; 
+        height: 560px; 
+        border: 8px solid #333; 
+        border-radius: 40px; 
+        background: url('https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/472686FDv/simply-piano-by-joytunes-ung-dung-hoc-piano-tren-dien-thoai-de-dang_5') center/cover; 
+        box-shadow: 0 0 40px rgba(255, 215, 0, 0.2);
+        position: relative;
+      ">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%); border-radius: 32px;"></div>
+      </div>
+
+      <div style="max-width: 550px;">
+        <h2 style="
+          font-family: 'Montserrat'; 
+          font-weight: 900; 
+          font-size: 36px; 
+          margin-bottom: 25px; 
+          color: var(--primary-gold); 
+          text-transform: uppercase;
+          line-height: 1.2;
+        ">
+          Học mọi lúc mọi nơi với App Piano Master
+        </h2>
+        <p style="
+          font-size: 16px; 
+          color: #e0e0e0; 
+          line-height: 1.8; 
+          margin-bottom: 40px;
+          font-weight: 400;
+        ">
+          Tải ứng dụng để nhận thông báo bài học mới, luyện tập cùng Metronome tích hợp sẵn và quản lý lộ trình học cá nhân ngay trên smartphone.
+        </p>
+        
+        <div style="display: flex; align-items: center; gap: 25px;">
+          <div style="
+            width: 120px; 
+            height: 120px; 
+            background: #fff; 
+            padding: 12px; 
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+          ">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=PianoMaster" style="width: 100%; height: 100%;" alt="QR Code">
+          </div>
+          <p style="
+            font-size: 14px; 
+            font-weight: 800; 
+            color: var(--primary-gold); 
+            letter-spacing: 2px;
+            text-transform: uppercase;
+          ">
+            QUÉT ĐỂ TẢI APP
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <section style="padding: 100px 20px; background-color: #fff;">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <h2 style="text-align: center; font-family: 'Montserrat'; font-weight: 900; font-size: 32px; color: var(--deep-brown); margin-bottom: 60px; text-transform: uppercase;">
+        Giải Đáp Thắc Mắc (FAQ)
+      </h2>
+
+      <div class="faq-accordion">
+        
+        <div class="faq-item-lux">
+          <div class="faq-question" onclick="toggleFAQ('faq-1')">
+            <span><strong>Q: Không có đàn tại nhà có học được không?</strong></span>
+            <span class="read-more-faq">ĐỌC THÊM</span>
+          </div>
+          <div id="faq-1" class="faq-answer">
+            <p>A: Bạn hoàn toàn có thể bắt đầu với các bài học nhạc lý và kỹ thuật ngón cơ bản. Tuy nhiên, để tiến bộ nhanh, Piano Master hỗ trợ bạn thuê đàn trả góp với giá ưu đãi cho học viên.</p>
+          </div>
+        </div>
+
+        <div class="faq-item-lux">
+          <div class="faq-question" onclick="toggleFAQ('faq-2')">
+            <span><strong>Q: Lịch học online có cố định không?</strong></span>
+            <span class="read-more-faq">ĐỌC THÊM</span>
+          </div>
+          <div id="faq-2" class="faq-answer">
+            <p>A: Video bài giảng được lưu trữ vĩnh viễn, bạn có thể học bất cứ khi nào rảnh. Các buổi hỗ trợ 1-1 sẽ được sắp xếp linh hoạt theo lịch cá nhân của bạn.</p>
+          </div>
+        </div>
+
+        <div class="faq-item-lux">
+          <div class="faq-question" onclick="toggleFAQ('faq-3')">
+            <span><strong>Q: Có cấp chứng chỉ sau khi hoàn thành khóa học không?</strong></span>
+            <span class="read-more-faq">ĐỌC THÊM</span>
+          </div>
+          <div id="faq-3" class="faq-answer">
+            <p>A: Có, sau khi hoàn thành đầy đủ bài tập và bài kiểm tra cuối khóa, bạn sẽ nhận được chứng chỉ xác nhận trình độ từ Piano Master Academy.</p>
+          </div>
+        </div>
+
+        <div class="faq-item-lux">
+          <div class="faq-question" onclick="toggleFAQ('faq-4')">
+            <span><strong>Q: Khóa học dành cho độ tuổi nào?</strong></span>
+            <span class="read-more-faq">ĐỌC THÊM</span>
+          </div>
+          <div id="faq-4" class="faq-answer">
+            <p>A: Lộ trình của chúng tôi được thiết kế linh hoạt cho mọi lứa tuổi, từ trẻ em (trên 6 tuổi) đến người lớn bận rộn muốn tìm lại niềm đam mê âm nhạc.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .faq-item-lux {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question {
+      padding: 25px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      background: #fff;
+    }
+
+    .faq-question:hover { background: var(--soft-beige); }
+
+    .faq-question strong { font-size: 16px; color: var(--deep-brown); }
+
+    .read-more-faq {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--deep-brown);
+      border-bottom: 2px solid var(--primary-gold);
+      padding-bottom: 2px;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+      background: #fafafa;
+    }
+
+    .faq-answer p {
+      padding: 0 30px 25px;
+      font-size: 14px;
+      color: #666;
+      line-height: 1.8;
+    }
+
+    .faq-item-lux.active-faq .faq-answer {
+      max-height: 200px; /* Cho phép câu trả lời hiện ra */
+    }
+
+    .faq-item-lux.active-faq .read-more-faq {
+      color: var(--primary-gold);
+      border-bottom-color: var(--deep-brown);
+    }
+  </style>
+
+  <script>
+    function toggleFAQ(id) {
+      const item = document.getElementById(id).parentElement;
+      
+      // Đóng các câu khác nếu muốn (tùy chọn)
+      // document.querySelectorAll('.faq-item-lux').forEach(el => el.classList.remove('active-faq'));
+
+      item.classList.toggle('active-faq');
+      
+      // Đổi chữ nút
+      const btn = item.querySelector('.read-more-faq');
+      if(item.classList.contains('active-faq')) {
+        btn.innerText = "THU GỌN";
+      } else {
+        btn.innerText = "ĐỌC THÊM";
+      }
+    }
+  </script>
+  <section style="padding: 120px 20px; background-color: #5D544C; color: #fff; text-align: center;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 style="
+        font-family: 'Montserrat'; 
+        font-weight: 900; 
+        font-size: 28px; 
+        margin-bottom: 80px; 
+        text-transform: uppercase; 
+        letter-spacing: 3px;
+        color: var(--soft-beige);
+      ">
+        Hệ Thống Cam Kết Vàng
+      </h2>
+
+      <div style="display: flex; justify-content: center; gap: 120px; flex-wrap: wrap;">
+        
+        <div class="trust-item-pro">
+          <div class="icon-circle-lux">
+            <img src="https://cdn-icons-png.flaticon.com/512/3437/3437341.png" style="width: 45px; filter: invert(1);">
+          </div>
+          <p style="
+            font-weight: 800; 
+            font-size: 14px; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px;
+            color: var(--primary-gold);
+          ">
+            Hỗ trợ 1-1 trọn đời
+          </p>
+        </div>
+
+        <div class="trust-item-pro">
+          <div class="icon-circle-lux">
+            <img src="https://cdn-icons-png.flaticon.com/512/2432/2432757.png" style="width: 45px; filter: invert(1);">
+          </div>
+          <p style="
+            font-weight: 800; 
+            font-size: 14px; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px;
+            color: var(--primary-gold);
+          ">
+            Chứng chỉ hoàn thành
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* HIỆU ỨNG LUXURY CHO CAM KẾT */
+    .icon-circle-lux {
+      width: 120px;
+      height: 120px;
+      border: 2px solid rgba(255, 215, 0, 0.3);
+      border-radius: 50%;
+      margin: 0 auto 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.05);
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+    }
+
+    .trust-item-pro:hover .icon-circle-lux {
+      background: var(--primary-gold);
+      border-color: var(--primary-gold);
+      transform: translateY(-10px) rotate(5deg);
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+    }
+
+    /* Đổi màu icon khi hover */
+    .trust-item-pro:hover .icon-circle-lux img {
+      filter: invert(0) !important;
+    }
+
+    .trust-item-pro p {
+      transition: all 0.3s ease;
+    }
+
+    .trust-item-pro:hover p {
+      color: #fff !important;
+      letter-spacing: 3px;
+    }
+  </style>
+  <footer style="background-color: #000; color: #fff; padding: 100px 20px 40px; font-family: 'Montserrat', sans-serif;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      
+      <div style="max-width: 600px; margin: 0 auto 100px; text-align: center;">
+        <h2 style="font-size: 36px; font-weight: 900; letter-spacing: 2px; margin-bottom: 45px; text-transform: uppercase;">
+          Kết nối với chúng tôi
+        </h2>
+        
+        <form style="display: flex; flex-direction: column; gap: 20px;">
+          <input type="text" placeholder="Họ và tên của anh/chị..." 
+            style="width: 100%; padding: 20px 25px; border: none; border-radius: 4px; font-size: 14px; font-family: 'Montserrat'; background: #fff;">
+          
+          <input type="tel" placeholder="Số điện thoại liên hệ..." 
+            style="width: 100%; padding: 20px 25px; border: none; border-radius: 4px; font-size: 14px; font-family: 'Montserrat'; background: #fff;">
+          
+          <button type="submit" 
+            style="width: 100%; padding: 20px; border: none; border-radius: 4px; background: #e0e0e0; color: #000; font-weight: 800; font-size: 14px; text-transform: uppercase; cursor: pointer; transition: 0.3s; margin-top: 10px;">
+            Gửi thông tin
+          </button>
+        </form>
+      </div>
+
+      <div style="width: 100%; height: 1px; background: #333; margin-bottom: 60px;"></div>
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 40px;">
+        <div style="max-width: 550px;">
+          <h3 style="font-size: 22px; font-weight: 900; margin-bottom: 25px; color: var(--primary-gold);">
+            CÔNG TY TNHH SI GIÁNG
+          </h3>
+          <p style="font-size: 13px; color: #bbb; line-height: 2.2; font-weight: 500;">
+            Địa chỉ: 280 An Dương Vương, Phường 4, Quận 5, TP.HCM <br>
+            Zalo/Hotline: 0938.011.220 | Email: minhnguyet@pianomaster.vn <br>
+            Mã số thuế/ĐKKD: 0312XXXXXX | Cấp bởi Sở Kế hoạch & Đầu tư TP.HCM
+          </p>
+        </div>
+
+        <div style="text-align: right;">
+          <div style="display: flex; gap: 25px; justify-content: flex-end; margin-bottom: 25px;">
+            <a href="#" style="color: #fff; text-decoration: none; font-size: 13px; font-weight: 800; letter-spacing: 1px;">FACEBOOK</a>
+            <a href="#" style="color: #fff; text-decoration: none; font-size: 13px; font-weight: 800; letter-spacing: 1px;">INSTAGRAM</a>
+            <a href="#" style="color: #fff; text-decoration: none; font-size: 13px; font-weight: 800; letter-spacing: 1px;">YOUTUBE</a>
+          </div>
+          <p style="font-size: 12px; color: #666; font-weight: 500;">
+            Chính sách bảo mật | Điều khoản dịch vụ
+          </p>
+        </div>
+      </div>
+
+      <div style="margin-top: 100px; text-align: center; border-top: 1px solid #1a1a1a; padding-top: 30px;">
+        <p style="font-size: 11px; color: #444; letter-spacing: 1px; font-weight: 600;">
+          © 2026 Designed by Minh Nguyet for UEH Innovation Project. All rights reserved.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+</body>
+</html>
