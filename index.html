@@ -162,6 +162,29 @@
       .hero-text h1 { font-size: 48px; }
       .search-container, .lang-btn { display: none; }
     }
+
+    /* === PHẦN BỔ SUNG ĐỂ CHUẨN ĐA THIẾT BỊ (MOBILE) === */
+    @media (max-width: 768px) {
+      body { overflow-x: hidden; }
+      header { padding: 15px 20px; }
+      .nav-menu, .search-container, .lang-btn { display: none !important; }
+      .hero { padding: 40px 20px; gap: 40px; }
+      .hero-text h1 { font-size: 40px; }
+      .hero-text p { font-size: 14px; }
+      .hero-image { width: 100%; min-width: unset; box-shadow: 8px 8px 0px var(--soft-beige); }
+      .stats-luxury > div { flex-direction: column; gap: 20px; }
+      .stat-box { min-width: 100% !important; padding: 30px 20px !important; }
+      .stat-number { font-size: 48px !important; }
+      .course-section > div { grid-template-columns: 1fr !important; }
+      .course-card-lux-horizontal { flex-direction: column; height: auto !important; }
+      .course-card-lux-horizontal img { width: 100% !important; height: 200px !important; }
+      .info-side { width: 100% !important; padding: 20px !important; }
+      .trust-item-pro { min-width: 100% !important; }
+      footer > div { padding: 40px 20px; }
+      footer div[style*="justify-content: space-between"] { flex-direction: column; text-align: center !important; gap: 30px; }
+      footer div[style*="text-align: right"] { text-align: center !important; }
+      footer div[style*="justify-content: flex-end"] { justify-content: center !important; }
+    }
   </style>
 </head>
 <body>
